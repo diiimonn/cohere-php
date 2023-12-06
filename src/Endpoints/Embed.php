@@ -10,9 +10,10 @@ use Cohere\Response;
 
 class Embed extends AbstractEndpoint
 {
-    public function __invoke(array $texts, string $model = null): Response
+    public function __invoke(array $texts, string $model = null, array $body = []): Response
     {
-        $body = ['texts' => $texts];
+        $body['texts'] = $texts;
+        
         if ($model) {
             $body['model'] = $model;
         }
